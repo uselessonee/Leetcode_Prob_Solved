@@ -30,3 +30,26 @@ public:
         return Bank;
     }
 };
+
+//Faster 
+
+class Solution {
+public:
+    int totalMoney(int n) {
+        int monday = 1, prev_Pay, Bank=0;
+        for (int i =1; i<= n; i++)
+        {
+
+            if(i%7 ==1)
+            {
+                Bank+=monday;
+                prev_Pay = monday++;
+            } 
+            else
+            {
+                Bank += ++prev_Pay;
+            }
+        }
+        return Bank;
+    }
+};
